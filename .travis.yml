@@ -24,6 +24,17 @@ matrix:
         - mvn test -B
         # also test Javadoc generation
         - mvn -P '!examples' javadoc:aggregate
+    # Power job
+    # For ppc64le build annotation module
+    - arch: ppc64le
+      jdk: openjdk11
+      script:
+       - cd annotation
+       - mvn test -B
+       # Set JAVA_HOME for javadoc
+       - export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-11-hotspot-ppc64el
+       - mvn -P '!examples' javadoc:aggregate
+       
   allow_failures:
     - jdk: openjdk-ea
 
