@@ -28,6 +28,7 @@ matrix:
     # For ppc64le build annotation module
     - arch: ppc64le
       jdk: openjdk11
+      install: skip
       script:
        - cd annotation
        - mvn test -B
