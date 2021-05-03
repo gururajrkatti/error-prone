@@ -35,7 +35,37 @@ matrix:
        # Set JAVA_HOME for javadoc
        - export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-11-hotspot-ppc64el
        - mvn -P '!examples' javadoc:aggregate
-       
+    - arch: ppc64le
+      jdk: openjdk8
+      dist: xenial
+      install: skip
+      script:
+       - cd annotation
+       - mvn test -B
+       # Set JAVA_HOME for javadoc
+       - export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-8-hotspot-ppc64el
+       - mvn -P '!examples' javadoc:aggregate
+    - arch: ppc64le
+      jdk: openjdk12
+      dist: xenial
+      install: skip
+      script:
+       - cd annotation
+       - mvn test -B
+       # Set JAVA_HOME for javadoc
+       - export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-12-hotspot-ppc64el
+       - mvn -P '!examples' javadoc:aggregate
+    - arch: ppc64le
+      jdk: openjdk14
+      dist: xenial
+      install: skip
+      script:
+       - cd annotation
+       - mvn test -B
+       # Set JAVA_HOME for javadoc
+       - export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-14-hotspot-ppc64el
+       - mvn -P '!examples' javadoc:aggregate
+
   allow_failures:
     - jdk: openjdk-ea
 
